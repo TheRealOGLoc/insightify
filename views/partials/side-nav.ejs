@@ -1,42 +1,48 @@
 <div id="side-nav">
 
-    <div id="icon" class="side-nav-item">
+    <a id="icon" class="side-nav-item">
         <img src="/images/icons/letter-i.png" alt="INSIGHTIFY">
         <span>INSIGHTIFY</span>
-    </div>
+    </a>
 
     <div class="empty-div" id="upper-empty-div"></div>
 
-    <div id="home" class="side-nav-item">
+    <a id="home" class="side-nav-item">
         <img src="/images/icons/home.png" alt="Home">
         <span>Home</span>
-    </div>
+    </a>
 
-    <div id="my-post" class="side-nav-item">
+    <a id="my-post" class="side-nav-item">
         <img src="/images/icons/my-post.png" alt="My Post">
         <span>My Post</span>
-    </div>
+    </a>
+    <% var greyCondition; %>
+    <% if (user) { %>
+        <% greyCondition = ""; %>
+    <%} else { %>
+        <% greyCondition = " grey"; %>
+    <% } %>
 
-    <div id="liked" class="side-nav-item">
+    <a id="liked" class="side-nav-item<%=greyCondition%>">
         <img src="/images/icons/like.png" alt="Like">
         <span>Like</span>
-    </div>
+    </a>
 
-    <div id="create" class="side-nav-item">
+    <a id="create" class="side-nav-item<%=greyCondition%>">
         <img src="/images/icons/create.png" alt="Create">
         <span>Create</span>
-    </div>
+    </a>
 
     <div class="empty-div" id="lower-empty-div"></div>
 
-    <div id="user" class="side-nav-item">
+    <a id="user" class="side-nav-item" href="/auth/google">
         <img src="/images/icons/user.png" alt="User">
         <span>Log in</span>
-    </div>
+    </a>
 
-    <div id="setting" class="side-nav-item">
+    <a id="setting" class="side-nav-item">
         <img src="/images/icons/setting.png" alt="Setting">
         <span>Setting</span>
-    </div>
+    </a>
 
 </div>
