@@ -16,28 +16,29 @@
         <img src="/images/icons/my-post.png" alt="My Post">
         <span>My Post</span>
     </a>
-    <% var greyCondition; %>
+    <% var loggedIn; %>
     <% if (user) { %>
-        <% greyCondition = ""; %>
+        <% console.log(user) %>
+        <% loggedIn = true; %>
     <%} else { %>
-        <% greyCondition = " grey"; %>
+        <% loggedIn = false; %>
     <% } %>
 
-    <a id="liked" class="side-nav-item<%=greyCondition%>">
+    <a id="liked" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
         <img src="/images/icons/like.png" alt="Like">
         <span>Like</span>
     </a>
 
-    <a id="create" class="side-nav-item<%=greyCondition%>">
+    <a id="create" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
         <img src="/images/icons/create.png" alt="Create">
         <span>Create</span>
     </a>
 
     <div class="empty-div" id="lower-empty-div"></div>
 
-    <a id="user" class="side-nav-item" href="/auth/google">
+    <a id="user" class="side-nav-item" href=<%= loggedIn ? "/logout" : "/auth/google"%> >
         <img src="/images/icons/user.png" alt="User">
-        <span>Log in</span>
+        <span><%= loggedIn ? user.name : "Log in" %></span>
     </a>
 
     <a id="setting" class="side-nav-item">

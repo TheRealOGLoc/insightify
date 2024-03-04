@@ -1,0 +1,16 @@
+<div id="form-wrapper" class="hide">
+    <button id="close-create-form">✖</button>
+    <div id="create-form" class="">
+        <span>Create New Post</span>
+        <form action="/insightify/create" enctype="multipart/form-data" method="POST">
+            <label>Upload your image and des in here</label>
+            <input type="file" name="image">
+            <hr>
+            <label>tags</label>
+            <input type="text" name="tags" required>
+            <label>contents</label>
+            <input type="text" name="content" required>
+            <input type="submit">
+        </form>
+    </div>
+</div>
