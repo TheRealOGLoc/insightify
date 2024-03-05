@@ -1,3 +1,9 @@
+/* variables */
+:root {
+  --nav-width: 250px;
+  --search-height: 50px;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
@@ -10,7 +16,7 @@ body {
   top: 0px;
   left: 0px;
   height: 100vh;
-  width: 250px;
+  width: var(--nav-width);
   display: flex;
   flex-direction: column;
   border-right: 0.5px solid rgb(205, 205, 205);
@@ -38,10 +44,6 @@ body {
   cursor: pointer;
   background-color: #b5eaff;
 }
-
-/* .side-nav-item:hover > img {
-  width: 22px;
-} */
 
 .side-nav-item img {
   padding-top: 8%;
@@ -81,8 +83,8 @@ body {
 
 #search-bar {
   position: absolute;
-  left: 250px;
-  top: 10px;
+  left: var(--nav-width);
+  top: 0px;
   width: calc(100vw - 250px);
   border-bottom:  0.5px solid rgb(205, 205, 205);
 }
@@ -90,7 +92,7 @@ body {
 #search-form {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: var(--search-height);
 }
 
 #search-icon {
@@ -142,3 +144,27 @@ body {
   color: white;
   font-size: 30px;
 }
+
+/* Explore */
+#explore-wrapper {
+  position: fixed;
+  top: var(--search-height);
+  left: var(--nav-width);
+  width: calc(100vw - var(--nav-width));
+}
+
+#tags {
+  margin: 5px;
+}
+
+.tag {
+  border: 1px solid #d1f2ff;
+  border-radius: 10px;
+  background-color: #d1f2ff;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+

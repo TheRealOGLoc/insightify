@@ -1,0 +1,20 @@
+<div id="explore-wrapper">
+    <div id="explore">
+        <div id="tags">
+            <% tags.forEach(function(tag) { %>
+                <span class="tag">#<%= tag %></span>
+            <% }) %>
+        </div>
+        <div id="posts-wrapper">
+            <div id="posts">
+                <% posts.forEach(function(post) { %>
+                    <a href=<%= "/insightify/" + post._id %> class="post">
+                        <img src=<%= post.image %> alt="post">
+                        <img src=<%= post.creater.avatar %> alt="avatar">
+                        <span><%= post.creater.name %></span>
+                    </a>
+                <%})%>
+            </div>
+        </div>
+    </div>
+</div>

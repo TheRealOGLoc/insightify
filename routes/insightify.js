@@ -5,15 +5,18 @@ var upload = require('../utilities/multer');
 
 /* /insightify has been added, no needs to add */
 
-/* GET / */
-router.get('/', function(req, res, next) {
-  res.render("insightify/index", {
-    title: "Insightify"
-  })
-});
+// /* GET / */
+// router.get('/', function(req, res, next) {
+//   res.render("insightify/index", {
+//     title: "Insightify"
+//   })
+// });
 
+// GET /
+router.get('/', postsController.explore);
 
-router.post('/create',upload.single('image') , postsController.create);
+// POST /create
+router.post('/create', upload.single('image'), postsController.create);
 
 module.exports = router;
 
