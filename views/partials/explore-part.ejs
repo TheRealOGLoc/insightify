@@ -9,9 +9,11 @@
             <div id="posts">
                 <% posts.forEach(function(post) { %>
                     <a href=<%= "/insightify/" + post._id %> class="post">
-                        <img src=<%= post.image %> alt="post">
-                        <img src=<%= post.creater.avatar %> alt="avatar">
-                        <span><%= post.creater.name %></span>
+                        <img src=<%= post.image %> alt="post" class="post-image">
+                        <div class="post-cover">
+                            <img src=<%= post.creater.avatar %> alt="avatar" class="post-avatar">
+                            <span class="post-name"><%= post.creater.name %></span>
+                        </div>
                     </a>
                 <%})%>
             </div>

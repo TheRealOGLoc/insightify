@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect("/insightify");
+  res.redirect("/insightify/explore");
 });
 
 // Google OAuth login route

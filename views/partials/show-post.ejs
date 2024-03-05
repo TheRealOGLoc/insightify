@@ -1,0 +1,46 @@
+<div id="show-post-wrapper">
+    <div id="show-post">
+        <div id="image">
+            <img src=<%= post.image %> alt="image">
+        </div>
+        <div id="middle">
+            <div id="name-avatar-tag">
+                <img src=<%= post.creater.avatar %> alt="avatar">
+                <span><%= post.creater.name %></span>
+            </div>
+            <div>
+                <img src="/images/icons/like-black.png" alt="like">
+            </div>
+        </div>
+        <div id="manipulate">
+            <button>Cancell</button>
+            <form action="/sightify<%= post._id %>/update">
+                <input type="submit" value="DELETE">
+            </form>
+            <form action="/sightify<%= post._id %>/delete">
+                <input type="text" value=<%= post.content %> readonly>
+                <input type="submit" value="EDIT">
+            </form>
+        </div>
+        <div id="comments">
+            <% post.comments.forEach(function(comment) {%>
+                <div class="comment">
+                    <img src=<%= comment.creater.avatar %> alt="comment avatar">
+                    <span><%= comment.creater.name %></span>
+                    <span><%= comment.content %></span>
+                </div>
+            <%})%>
+        </div>
+        <% if (user) {%>
+            <form method="POST" action=<%= "/insightify/" +  post._id + "/comment" %>>
+                <input type="text" name="content">
+                <input type="submit">
+            </form>
+        <%} else {%>
+            <form method="POST" action=<%= "/insightify/" +  post._id + "comment" %>>
+                <input type="text" name="content" value="Please Log in to comment" readonly>
+                <input type="submit" disabled>
+            </form>
+        <% } %>
+    </div>
+</div>

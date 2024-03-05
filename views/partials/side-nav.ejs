@@ -12,19 +12,19 @@
         <span>Explore</span>
     </a>
 
-    <a id="my-post" class="side-nav-item">
-        <img src="/images/icons/my-post.png" alt="My Post">
-        <span>My Post</span>
-    </a>
     <% var loggedIn; %>
     <% if (user) { %>
-        <% console.log(user) %>
         <% loggedIn = true; %>
     <%} else { %>
         <% loggedIn = false; %>
     <% } %>
 
-    <a id="liked" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
+    <a id="my-post" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
+        <img src="/images/icons/my-post.png" alt="My Post">
+        <span>My Post</span>
+    </a>
+
+    <a id="like" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
         <img src="/images/icons/like.png" alt="Like">
         <span>Like</span>
     </a>
