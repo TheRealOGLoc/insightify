@@ -1,47 +1,79 @@
 <div id="show-post-wrapper">
     <div id="show-post">
-        <div id="image">
-            <img src=<%= post.image %> alt="image">
-        </div>
-        <div id="middle">
-            <div id="name-avatar-tag">
-                <img src=<%= post.creater.avatar %> alt="avatar">
-                <span><%= post.creater.name %></span>
-            </div>
-            <div>
-                <img src="/images/icons/like-black.png" alt="like">
+        <div id="delete-box" class="hide">
+            <div id="delete-wrapper">
+                <span>Delete?</span>
+                <button id="no-btn">No</button>
+                <form action=<%= "/insightify/" + post._id + "/delete?_method=DELETE"%> method="POST">
+                    <input type="submit" value="delete" id="yes-btn">
+                </form>
             </div>
         </div>
-        <div id="manipulate">
-            <% if (user) {%>
-                <form method="POST" action=<%= "/insightify/" + post._id + "/like" %>>
-                    <input type="submit" value="like" id="like-loggedin">
-                </form>
-            <% } else { %>
-                <form action="#">
-                    <input type="submit" value="like" id="like-not-loggedin">
-                </form>
-            <% } %>
+        <div id="left-post">
+            <img src=<%= post.image %> alt="image" id="show-post-image">
         </div>
-        <div id="comments">
-            <% post.comments.forEach(function(comment) {%>
-                <div class="comment">
-                    <img src=<%= comment.creater.avatar %> alt="comment avatar">
-                    <span><%= comment.creater.name %></span>
-                    <span><%= comment.content %></span>
-                </div>
-            <%})%>
-        </div>
-        <% if (user) {%>
-            <form method="POST" action=<%= "/insightify/" +  post._id + "/comment" %>>
-                <input type="text" name="content">
-                <input type="submit">
-            </form>
-        <%} else {%>
-            <form method="POST" action=<%= "/insightify/" +  post._id + "comment" %>>
-                <input type="text" name="content" value="Please Log in to comment" readonly>
-                <input type="submit" disabled>
-            </form>
+        <% let loggedInBtn = "" %>
+        <% if (!user || user._id.toString() !== post.creater._id.toString()) {%>
+            <% loggedInBtn = "hide" %>
         <% } %>
+        <div id="right-post">
+            <div id="user-div">
+                <div id="name-avatar-tag">
+                    <div id="tag-avatar-wrapper">
+                        <img src=<%= post.creater.avatar %> id="tag-avatar">
+                    </div>
+                    <span class="tag-name"><%= post.creater.name %></span>
+
+                    <button id="tag-cancell-edit-btn" class=<%= loggedInBtn %>>Cancell</button>
+                    <form action=<%= "/insightify/" + post._id + "/update"%> method="POST">
+                        <input type="text" value=<%= post.content %> id="tag-update-content" name="content" readonly>
+                        <input type="submit" value="update" id="tag-update-btn" class=<%= loggedInBtn %>>
+                    </form>
+                </div>
+                <div id="manipulate">
+                    <button id="tag-delete-btn" class=<%= loggedInBtn %>>delete</button>
+                    <button id="tag-edit-btn" class=<%= loggedInBtn %>>Edit</button>
+                </div>
+            </div>
+            
+            <div id="comments">
+                <% post.comments.forEach(function(comment) {%>
+                    <div class="comment">
+                        <img src=<%= comment.creater.avatar %>>
+                        <span><%= comment.creater.name %></span>
+                        <span><%= comment.content %></span>
+                    </div>
+                <%})%>
+            </div>
+            <div id="like-div">
+                <img src="/images/icons/like-black.png" alt="like" id="like-icon">
+                <span>liked by...</span>
+                <div id="like-btn">
+                    <% if (user) {%>
+                        <form method="POST" action=<%= "/insightify/" + post._id + "/like" %>>
+                            <input type="submit" value="like" id="like-loggedin">
+                        </form>
+                    <% } else { %>
+                        <form action="#">
+                            <input type="submit" value="like" id="like-not-loggedin">
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+            <div id="comment-div">
+                <% if (user) {%>
+                    <form method="POST" action=<%= "/insightify/" +  post._id + "/comment" %>>
+                        <input type="text" name="content">
+                        <input type="submit">
+                    </form>
+                <%} else {%>
+                    <form method="POST" action=<%= "/insightify/" +  post._id + "comment" %>>
+                        <input type="text" name="content" value="Please Log in to comment" readonly>
+                        <input type="submit" disabled>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+
     </div>
 </div>

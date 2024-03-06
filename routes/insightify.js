@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var postsController = require('../controllers/posts');
 var upload = require('../utilities/multer');
-const { post } = require('jquery');
 
 /* /insightify has been added, no needs to add */
 
@@ -28,11 +27,16 @@ router.post('/refresh', postsController.refresh);
 // POST /:id/like
 router.post("/:id/like", postsController.like);
 
-//  POST /:id/comment
+// POST /:id/comment
 router.post('/:id/comment', postsController.comment);
 
-//  DELETE /:id/delete
-router.delete('/:id/delete')
+// POST /:id/update
+router.post('/:id/update', postsController.updatePost);
+
+// DELETE /:id/delete
+router.delete('/:id/delete', postsController.deletePost)
+
+
 
 module.exports = router;
 

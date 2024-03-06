@@ -10,7 +10,26 @@ module.exports = {
     like,
     showLikes,
     showMyPosts,
-    refresh
+    refresh,
+    deletePost,
+    updatePost,
+    search
+}
+
+async function search(req, res, next) {
+
+}
+
+async function updatePost(req, res, next) {
+    const id = req.params.id;
+    await Post.updateOne({_id: id}, req.body);
+    res.redirect(`/insightify/${req.params.id}`);
+}
+
+async function deletePost(req, res, next) {
+    const id = req.params.id;
+    await Post.findByIdAndDelete({_id: id})
+    res.redirect(`/insightify/`);
 }
 
 async function refresh(req, res, next) {
@@ -26,7 +45,9 @@ async function refresh(req, res, next) {
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
         for (let j = 0; j < post.tags.length; j++) {
-            tags.push(post.tags[j])
+            if (!tags.includes(post.tags[j])) {
+                tags.push(post.tags[j])
+            }
         }
     }
     res.render('insightify/index', {
@@ -126,7 +147,9 @@ async function explore(req, res, next) {
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
         for (let j = 0; j < post.tags.length; j++) {
-            tags.push(post.tags[j])
+            if (!tags.includes(post.tags[j])) {
+                tags.push(post.tags[j])
+            }
         }
     }
     res.render('insightify/index', {

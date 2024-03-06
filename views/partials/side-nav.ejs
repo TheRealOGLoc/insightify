@@ -5,11 +5,11 @@
         <span>INSIGHTIFY</span>
     </a>
 
-    <div class="empty-div" id="upper-empty-div"></div>
+    <div class="empty-div" id="upper-empty-div">Menu</div>
 
     <a id="home" class="side-nav-item" href="/insightify">
         <img src="/images/icons/home.png" alt="Home">
-        <span>Explore</span>
+        <span class="side-nav-text">Explore</span>
     </a>
 
     <% var loggedIn; %>
@@ -21,17 +21,17 @@
 
     <a id="my-post" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
         <img src="/images/icons/my-post.png" alt="My Post">
-        <span>My Post</span>
+        <span class="side-nav-text">My Post</span>
     </a>
 
     <a id="like" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
         <img src="/images/icons/like.png" alt="Like">
-        <span>Like</span>
+        <span class="side-nav-text">Like</span>
     </a>
 
     <a id="create" class="side-nav-item <%=loggedIn ? "" : "grey"%>">
         <img src="/images/icons/create.png" alt="Create">
-        <span>Create</span>
+        <span class="side-nav-text">Create</span>
     </a>
 
     <div class="empty-div" id="lower-empty-div"></div>
