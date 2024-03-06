@@ -26,7 +26,7 @@
 
                     <button id="tag-cancell-edit-btn" class=<%= loggedInBtn %>>Cancell</button>
                     <form action=<%= "/insightify/" + post._id + "/update"%> method="POST">
-                        <input type="text" value=<%= post.content %> id="tag-update-content" name="content" readonly>
+                        <input type="text" value="<%= post.content %>" id="tag-update-content" name="content" readonly>
                         <input type="submit" value="update" id="tag-update-btn" class=<%= loggedInBtn %>>
                     </form>
                 </div>
