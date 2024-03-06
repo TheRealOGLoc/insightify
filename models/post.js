@@ -24,10 +24,7 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Comment',
     }],
-    likes: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Like',
-    }]
+    likes: [String]
     /////Needs to populate,
 })
 

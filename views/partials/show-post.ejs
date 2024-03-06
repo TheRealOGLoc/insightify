@@ -13,14 +13,15 @@
             </div>
         </div>
         <div id="manipulate">
-            <button>Cancell</button>
-            <form action="/sightify<%= post._id %>/update">
-                <input type="submit" value="DELETE">
-            </form>
-            <form action="/sightify<%= post._id %>/delete">
-                <input type="text" value=<%= post.content %> readonly>
-                <input type="submit" value="EDIT">
-            </form>
+            <% if (user) {%>
+                <form method="POST" action=<%= "/insightify/" + post._id + "/like" %>>
+                    <input type="submit" value="like" id="like-loggedin">
+                </form>
+            <% } else { %>
+                <form action="#">
+                    <input type="submit" value="like" id="like-not-loggedin">
+                </form>
+            <% } %>
         </div>
         <div id="comments">
             <% post.comments.forEach(function(comment) {%>

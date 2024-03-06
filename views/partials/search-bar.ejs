@@ -1,7 +1,12 @@
 <div id="search-bar">
-    <form action="/insightify/search" id="search-form">
-        <img src="/images/icons/search.png" alt="search" id="search-icon" class="search-content">
-        <input type="text" name="search" id="search-input" class="search-content">
-        <input type="submit" value="Search" id="search-btn" class="search-content">
-    </form>
+    <div id="search-bar-wrapper">
+        <form action="/insightify/search" id="search-form" class="search-bar-form">
+            <img src="/images/icons/search.png" alt="search" id="search-icon" class="search-content">
+            <input type="text" name="search" id="search-input">
+            <input type="submit" value="Search" id="search-btn" class="search-bar-btn">
+        </form>
+        <form action="/insightify/refresh" method="POST" id="refresh-form" class="search-bar-form">
+            <input type="submit" value="⟳" id="refresh-btn" class="search-bar-btn">
+        </form>
+    </div>
 </div>

@@ -9,15 +9,20 @@ const greyClassName = "grey";
 const sideNavCreateEl = document.getElementById("create");
 const sideNavMyPostEl = document.getElementById("my-post");
 const sideNavLikeEl = document.getElementById("like");
-
 const createPostFormEl = document.getElementById("form-wrapper");
 const closePostFormBtn = document.getElementById("close-create-form");
+
+const likeNotLoggedBtnEl = document.getElementById('like-not-loggedin');
 
 /*----- event listeners -----*/
 sideNavCreateEl.addEventListener('click', showCreateForm);
 closePostFormBtn.addEventListener('click', hideCreateForm);
 sideNavMyPostEl.addEventListener("click", goToMyPost);
 sideNavLikeEl.addEventListener('click', goToLike);
+if (likeNotLoggedBtnEl !== null) {
+    likeNotLoggedBtnEl.addEventListener('click', alertLogIn);
+}
+
 
 /*----- functions -----*/
 function showCreateForm() {
@@ -40,4 +45,8 @@ function goToLike() {
     if (!sideNavLikeEl.classList.contains(greyClassName)) {
         window.location.href = "/insightify/like";
     }
+}
+
+function alertLogIn() {
+    alert("Log in to like");
 }
