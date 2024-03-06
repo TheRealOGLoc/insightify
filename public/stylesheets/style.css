@@ -102,6 +102,7 @@ body {
   top: 0px;
   width: calc(100vw - 250px);
   background-color: #2b3844;
+  
 }
 
 #search-bar-wrapper {
@@ -190,11 +191,14 @@ body {
   width: calc(100vw - var(--nav-width));
   height: calc(100vh - var(--search-height));
   background-color: #202c36;
+  overflow: auto;
 }
 
 #tags {
   margin: 20px auto;
   width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tag {
@@ -207,9 +211,11 @@ body {
 }
 
 #posts-wrapper {
+  
   width: 1000px;
   height: calc();
   margin: 0 auto;
+
 }
 
 #posts {
@@ -302,7 +308,8 @@ body {
   width: calc(100vw - var(--nav-width));
   height: 95vh;
   padding-top: 5vh;
-  background-color: #76767639;
+  background-color: #202c36;
+  
 }
 
 #show-post {
@@ -320,6 +327,8 @@ body {
   height: 730px;
   width: 850px;
   background-color: rgb(0, 0, 0);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #user-div {
