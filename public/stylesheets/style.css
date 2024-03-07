@@ -132,7 +132,7 @@ body {
 #search-input {
   height: 30px;
   margin: auto 30px;
-  background-color: plum;
+  background-color: rgb(183, 105, 183);
   width: 300px;
   border-radius: 15px;
   padding-left: 20px;
@@ -146,13 +146,19 @@ body {
   height: 30px;
   width: 50px;
   margin-right: 10px;
-  background-color: rgb(116, 113, 113);
+  background-color: #455260;
   border-radius: 50px;
-  font-size: 25px;
+  font-size: 18px;
   color: white;
   font-weight: bolder;
   border: none;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: 0.2s;
+}
+
+.search-bar-btn:hover {
+  cursor: pointer;
+  background-color: #525d67;
 }
 
 /* Create form */
@@ -170,11 +176,12 @@ body {
   position: relative;
   flex-direction: column;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: #323e4a;
   margin-top: 200px;
   width: 400px;
   border-radius: 10px;
   padding: 15px;
+  color: white;
 }
 
 .hide {
@@ -242,13 +249,13 @@ body {
   width: 75px;
   color: white;
   border-radius: 20px;
-  background-color: plum;
+  background-color: rgb(183, 105, 183);
   transition: 0.2s;
 }
 
 #upload-post-btn:hover {
   padding-bottom: 3px;
-  background-color: rgb(136, 61, 136);
+  background-color: rgb(126, 39, 126);
 }
 
 /* Explore */
@@ -274,8 +281,15 @@ body {
   overflow: auto;
 }
 
+.small-title {
+  font-size: 30px;
+  color: white;
+  width: 380px;
+  margin: 10px auto;
+}
+
 #tags {
-  margin: 20px auto;
+  margin: 10px auto;
   width: 1000px;
   display: flex;
   flex-wrap: wrap;
@@ -288,14 +302,13 @@ body {
   padding: 10px;
   color: white;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 #posts-wrapper {
-  
   width: 1000px;
   height: calc();
   margin: 0 auto;
-
 }
 
 #posts {
@@ -510,16 +523,47 @@ body {
   position: absolute;
   width: 1200px;
   height: 730px;
-  background-color: #c5c5c584;
+  background-color: #000000a3;
+  z-index: 2;
 }
 
 #delete-wrapper {
   background-color: white;
   border-radius: 5px;
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 170px;
   margin: 0 auto;
   margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#confirm-btns {
+  display: flex;
+}
+
+#delete-message {
+  font-size: 30px;
+}
+
+.confirm-btn {
+  font-weight: bolder;
+  border: none;
+  width: 60px;
+  height: 39px;
+  color: black;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+.confirm-btn:hover {
+  cursor: pointer;
+}
+
+#yes-btn {
+  background-color: rgb(255, 93, 93);
 }
 
 #comments {

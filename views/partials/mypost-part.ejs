@@ -1,5 +1,10 @@
 <div id="explore-wrapper">
     <div id="explore">
+        <% if (title === "My posts") {%>
+            <div class="small-title">Discover the Exciting Moments of Your Past</div>
+        <% } else if (title === "Likes") {%>
+            <div class="small-title">View Your Favorite Posts</div>
+        <% } %>
         <div id="posts-wrapper">
             <div id="posts">
                 <% posts.forEach(function(post) { %>

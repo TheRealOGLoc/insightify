@@ -2,11 +2,13 @@
     <div id="show-post">
         <div id="delete-box" class="hide">
             <div id="delete-wrapper">
-                <span>Delete?</span>
-                <button id="no-btn">No</button>
-                <form action=<%= "/insightify/" + post._id + "/delete?_method=DELETE"%> method="POST">
-                    <input type="submit" value="delete" id="yes-btn">
-                </form>
+                <div id="delete-message">Delete this post?</div>
+                <div id="confirm-btns">
+                    <button id="no-btn" class="confirm-btn">No</button>
+                    <form action=<%= "/insightify/" + post._id + "/delete?_method=DELETE"%> method="POST">
+                        <input type="submit" value="Delete" id="yes-btn" class="confirm-btn">
+                    </form>
+                </div>
             </div>
         </div>
         <div id="left-post">
