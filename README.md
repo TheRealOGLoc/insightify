@@ -5,50 +5,39 @@
 </p>
 
 <p align="center">A social media sharing platform</p>
+<p>Insightify is an exhilarating photo-sharing platform designed to provide users with a creative, inspiring, and interactive space. Whether it's your latest travel photography or meticulously crafted food snapshots, Insightify welcomes you to share your perspective and stories.</p>
 
 ## Website Link
 
-[Insightify] (https://therealogloc.github.io/minesweeper-Win98/)
+[Insightify] (https://insightify-4c445209a40d.herokuapp.com/insightify)
 
-## How to play 
+## Features
 
- - Left click to open an cell.
- - Right click to flag an cell.
- - The opened cell will indicate number of mines nearby.
- - Left click the number will try to open nearby cell.
- - WARNING !!! ⚠️
- - If left you missed flag a cell, left click nearby number cell will explode that mine!
+ - View posts from all over the world
+ - Upload your favorite photos
+ - Comment on post
+ - Edit post
+ - Delete post
+ - Google Login
+ - Refresh the posts
+ - Search post
+ - Like post
 
- ## Restart game 
+ ## Tech Stack
 
- - Press the smile button will restart the current level game.
- - Press the new game button in the game menu will also restart the current level game.
- - If you want to change the difficulty of the game, open game menu and select a new difficulty.
+ - JavaScript
+ - CSS
+ - HTML
+ - Express
+ - ejs
+ - mongoDB
+ - Node.js
 
- ## Hide or reopen game window 
+ ## Chanllenges 
 
- - If you close the minesweeper window, double click the icon in the desktop.
- - Click the minimum will hide the window.
- - Click the minesweeper in the task bar will open or hide the window.
- - The window is draggable.
-
- ## Features 📍 
-
- - ✔️ Classic Windows 98 style
- - ✔️ Basic minesweeper functions
- - ✔️ Draggable window
- - ✔️ Difficulty selector
- - ✔️ Number of mines left count
- - ✔️ First click safety
- - ✔️ Open, minimise or close the window
- - ......
-
- ## Chanllenges 🔒
-
- - The flood feature
- - Simulate the win98 style
- - Timer
- - Check nearby mines
- - Check nearby flag correct or not
- - First click safety
+ - Google Login
+ - Many:Many database object
+ - Page layout
+ - Update content
+ - Controller
  - ......
