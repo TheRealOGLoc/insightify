@@ -17,7 +17,33 @@ module.exports = {
 }
 
 async function search(req, res, next) {
-
+    const target = req.body.search;
+    const posts = await Post.find({
+        $or: [
+            { tags: { $regex: target, $options: "i" } }, 
+            { content: { $regex: target, $options: "i" } } 
+        ]
+    }).populate("creater")
+    .populate({
+        path: "comments",
+        populate: {
+            path: "creater"
+        }
+    });
+    const tags = [];
+    for (let i = 0; i < posts.length; i++) {
+        const post = posts[i];
+        for (let j = 0; j < post.tags.length; j++) {
+            if (!tags.includes(post.tags[j])) {
+                tags.push(post.tags[j])
+            }
+        }
+    }
+    res.render('insightify/index', {
+        title: target,
+        posts: posts,
+        tags: tags,
+    })
 }
 
 async function updatePost(req, res, next) {

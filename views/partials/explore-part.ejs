@@ -1,5 +1,11 @@
 <div id="explore-wrapper">
     <div id="explore">
+        <% if (posts.length === 0) {%>
+            <div id="not-found-wrapper">
+                <div id="not-found"> No result for "<%= title %>" </div>
+            </div>
+            
+        <% } %>
         <div id="tags">
             <% tags.forEach(function(tag) { %>
                 <span class="tag">#<%= tag %></span>

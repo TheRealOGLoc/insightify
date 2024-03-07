@@ -1,16 +1,25 @@
 <div id="form-wrapper" class="hide">
     <button id="close-create-form">✖</button>
-    <div id="create-form" class="">
-        <span>Create New Post</span>
+    <div id="create-form">
+        <div id="create-form-title">Create New Post</div>
         <form action="/insightify/create" enctype="multipart/form-data" method="POST">
-            <label>Upload your image and des in here</label>
-            <input type="file" name="image">
+            <div id="create-upper">
+                <img src="/images/icons/upload-image.png" id="upload-image">
+                <label>Upload your post in here</label>
+                <input type="file" name="image" value="Upload Image" id="upload-image-btn" required>
+            </div>
             <hr>
-            <label>tags</label>
-            <input type="text" name="tags" required>
-            <label>contents</label>
-            <input type="text" name="content" required>
-            <input type="submit">
+            <div id="create-lower">
+                <div>
+                    <label>tags (space)</label>
+                    <input type="text" name="tags" class="new-upload-text" required>
+                </div>
+                <div>
+                    <label>content</label>
+                    <input type="text" name="content" class="new-upload-text" id="new-upload-content" required>
+                </div>
+            </div>
+            <input type="submit" value="Upload" id="upload-post-btn">
         </form>
     </div>
 </div>

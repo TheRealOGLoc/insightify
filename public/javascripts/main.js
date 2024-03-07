@@ -13,31 +13,34 @@ const sideNavLikeEl = document.getElementById("like");
 const createPostFormEl = document.getElementById("form-wrapper");
 const closePostFormBtn = document.getElementById("close-create-form");
 const showPostImageEl = document.getElementById("show-post-image");
-
 const likeNotLoggedBtnEl = document.getElementById('like-not-loggedin');
-
 const tagDeleteBtnEl = document.getElementById("tag-delete-btn");
 const deleteBoxEl = document.getElementById("delete-box");
 const noBtnEl = document.getElementById("no-btn");
-
+const searchInputEl = document.getElementById("search-input");
 const editBtnEl = document.getElementById("tag-edit-btn");
 const updateContentEl = document.getElementById("tag-update-content");
+const cancellEditBtnEl = document.getElementById("tag-cancell-edit-btn");
+const updateContentBtnEl = document.getElementById("tag-update-btn");
 
 /*----- event listeners -----*/
 sideNavCreateEl.addEventListener('click', showCreateForm);
 closePostFormBtn.addEventListener('click', hideCreateForm);
 sideNavMyPostEl.addEventListener("click", goToMyPost);
 sideNavLikeEl.addEventListener('click', goToLike);
-if (tagDeleteBtnEl !== null) {
+if (searchInputEl) {
+    searchInputEl.addEventListener('click', clearSearchInput); 
+}
+if (tagDeleteBtnEl) {
     tagDeleteBtnEl.addEventListener("click", showDeleteBox);
 }
-if (noBtnEl !== null) {
+if (noBtnEl) {
     noBtnEl.addEventListener("click", hideDeleteBox);
 }
-if (editBtnEl !== null) {
+if (editBtnEl) {
     editBtnEl.addEventListener("click", showUpdateBtnAndEnableEdit)
 }
-if (likeNotLoggedBtnEl !== null) {
+if (likeNotLoggedBtnEl) {
     likeNotLoggedBtnEl.addEventListener('click', alertLogIn);
 }
 
@@ -108,10 +111,21 @@ function hideDeleteBox() {
 
 function showUpdateBtnAndEnableEdit() {
     if (editBtnEl && updateContentEl.readOnly) {
+        cancellEditBtnEl.classList.remove(hideClassName);
+        updateContentBtnEl.classList.remove(hideClassName);
         updateContentEl.readOnly = false;
-    } else if (editBtnEl && !updateContentEl.readOnly) {
-        updateContentEl.readOnly = true;
         updateContentEl.focus();
+    } else if (editBtnEl && !updateContentEl.readOnly) {
+        cancellEditBtnEl.classList.add(hideClassName);
+        updateContentBtnEl.classList.add(hideClassName);
+        updateContentEl.readOnly = true;
+
+    }
+}
+
+function clearSearchInput() {
+    if (searchInputEl.value === "Search...") {
+        searchInputEl.value = "";
     }
 }
 

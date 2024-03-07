@@ -46,7 +46,7 @@ body {
   border-radius: 5px;
   transition: 0.3s;
   text-decoration: none !important;
-  color: white !important;
+  color: white;
 }
 
 .side-nav-item:hover {
@@ -96,7 +96,7 @@ body {
 }
 
 .grey {
-  color: rgb(180, 180, 180);
+  color: rgb(81, 81, 81);
 }
 
 
@@ -109,7 +109,7 @@ body {
   top: 0px;
   width: calc(100vw - 250px);
   background-color: #2b3844;
-  
+  height: 70px;
 }
 
 #search-bar-wrapper {
@@ -160,21 +160,21 @@ body {
 #form-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: #00000039;
+  background-color: #000000a3;
   position: fixed;
   top: 0;
   left: 0;
 }
 
 #create-form {
+  position: relative;
   flex-direction: column;
-  height: 300px;
-  width: 300px;
-  position: absolute;
-  top: 30vh;
-  left: 30vw;
-  background-color: #b5eaff;
-
+  margin: 0 auto;
+  background-color: #ffffff;
+  margin-top: 200px;
+  width: 400px;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .hide {
@@ -190,7 +190,80 @@ body {
   font-size: 30px;
 }
 
+#create-form-title {
+  margin: 0 auto;
+  width: 160px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#upload-image {
+  width: 200px;
+  margin-left: 120px;
+}
+
+#create-upper {
+  display: flex;
+  flex-direction: column;
+}
+
+#create-upper label {
+  margin-left: 120px;
+  margin-bottom: 20px;
+}
+
+#upload-image-btn {
+  margin-left: 120px;
+}
+
+.new-upload-text {
+  height: 20px;
+  border-radius: 20px;
+  padding-left: 5px;
+  height: 30px;
+  border: 0.5px solid black;
+}
+
+#create-lower div {
+  margin-top: 10px;
+  margin-left: 35px;
+}
+
+#new-upload-content {
+  margin-left: 25px;
+}
+
+#upload-post-btn {
+  margin-top: 10px;
+  margin-left: 170px;
+  height: 35px;
+  font-weight: bolder;
+  border: none;
+  width: 75px;
+  color: white;
+  border-radius: 20px;
+  background-color: plum;
+  transition: 0.2s;
+}
+
+#upload-post-btn:hover {
+  padding-bottom: 3px;
+  background-color: rgb(136, 61, 136);
+}
+
 /* Explore */
+#not-found-wrapper {
+  width: calc(100vw - var(--nav-width));
+  display: flex;
+}
+
+#not-found {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  color: white;
+  margin: 50px auto;
+}
+
 #explore-wrapper {
   position: fixed;
   top: var(--search-height);
@@ -232,17 +305,6 @@ body {
   align-items: center;
 }
 
-@keyframes shake {
-  0% {
-    transform: rotate(-0.5deg);
-  }
-  50% {
-    transform: rotate(1deg);
-  }
-  100% {
-    transform: rotate(-1deg);
-  }
-}
 
 /* Show Post */
 
@@ -313,8 +375,8 @@ body {
   top: 0;
   left: var(--nav-width);
   width: calc(100vw - var(--nav-width));
-  height: 95vh;
-  padding-top: 5vh;
+  height: 92vh;
+  padding-top: 8vh;
   background-color: #202c36;
   
 }
@@ -333,15 +395,14 @@ body {
   align-items: center;
   height: 730px;
   width: 850px;
-  background-color: rgb(0, 0, 0);
+  background-color: #1b2228;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
 #user-div {
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid rgb(176, 176, 176);
   position: relative;
-  height: 100px;
   padding: 15px;
 }
 
@@ -352,7 +413,8 @@ body {
 #tag-avatar-wrapper {
   width: 39.5px;
   height: 39.5px;
-  background-color: aquamarine;
+  background-color: rgb(0, 62, 42);
+  border-radius: 50px;
 }
 
 #tag-avatar {
@@ -360,47 +422,88 @@ body {
   width: 39.5px;
 }
 
-.tag-name {
-  font-weight: bold;
+#tag-name {
+  position: absolute;
+  width: 130px;
+  height: 40px;
+  top: 15px;
+  left: 60px;
+  font-weight: 600;
 }
 
 #tag-delete-btn {
   position: absolute;
-  top: 15px;
-  left: 200px;
+  top: 17px;
+  left: 250px;
+  background-image: url(../images/icons/delete.png);
+}
+
+.manipulate-btn {
+  width: 30px;;
+  height: 30px;
+  background-color: transparent;
+  background-size: contain;
+  border: none;
+  transition: 0.2s;
+}
+
+.manipulate-btn:hover {
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.5); /* 在hover状态下添加阴影 */
 }
 
 #tag-edit-btn {
   position: absolute;
-  top: 15px;
-  left: 270px;
+  top: 18px;
+  left: 300px;
+  background-image: url(../images/icons/edit.png);
 }
 
 #tag-cancell-edit-btn {
   position: absolute;
-  top: 45px;
-  left: 200px;
+  top: 60px;
+  left: 250px;
+  background-image: url(../images/icons/cancel.png);
 }
 
 #tag-update-content {
-  width: 100px;
+  margin-top: 10px;
+  width: 220px;
+  height: 40px;
+  resize: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+  font-size: 16px;
+  border: none;
 }
 
 #tag-update-btn {
   position: absolute;
-  top: 45px;
-  left: 270px;
+  top: 60px;
+  left: 300px;
+  background-image: url(../images/icons/update.png);
 }
 
+#tag-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-tag {
+  color: rgb(139, 182, 255);
+  margin-right: 8px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+}
 
 #like-div {
+  position: relative;
   margin-top: auto;
   margin-bottom: 0;
-  border-top: 0.5px solid black;
+  border-top: 0.5px solid rgb(176, 176, 176);
 }
 
-#like-icon {
-  width: 30px;
+#like-count {
+  position: absolute;
+  left: 60px;
+  top: 10px;
 }
 
 #delete-box {
@@ -417,4 +520,94 @@ body {
   height: 200px;
   margin: 0 auto;
   margin-top: 200px;
+}
+
+#comments {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 320px;
+  height: 460px;
+  overflow: auto;
+}
+
+.comment {
+  position: relative;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.comment-avatar {
+  width: 39.5px;
+  height: 39.5px;
+  border-radius: 50px;
+}
+
+.comment-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-name {
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.comment-content {
+  margin-left: 6px;
+  margin-top: 0px;
+  font-size: 15px;
+  max-width: 250px;
+  word-wrap: break-word;
+}
+
+.post-like-btn {
+  margin-left: 10px;
+  width: 39.5px;
+  height: 39.5px;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+}
+
+.userLiked {
+  background-image: url(../images/icons/like.png);
+}
+
+.userNotLiked {
+  background-image: url(../images/icons/like-black.png);
+}
+
+#comment-div {
+  margin-left: 10px;
+}
+
+.comment-input-submit {
+  display: flex;
+  align-content: center;
+}
+
+.new-comment-content {
+  resize: none;
+  height: 20px;
+  border-radius: 20px;
+  padding-left: 5px;
+  height: 30px;
+}
+
+.new-comment-submit {
+  margin-left: 30px;
+  font-weight: bolder;
+  border: none;
+  width: 60px;
+  color: white;
+  border-radius: 20px;
+  background-color: plum;
+  transition: 0.2s;
+}
+
+.new-comment-submit:hover {
+  background-color: rgb(136, 61, 136);
 }

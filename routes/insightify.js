@@ -24,6 +24,9 @@ router.post('/create', upload.single('image'), postsController.create);
 // POST /refresh
 router.post('/refresh', postsController.refresh);
 
+// POST /search
+router.post('/search', postsController.search);
+
 // POST /:id/like
 router.post("/:id/like", postsController.like);
 
