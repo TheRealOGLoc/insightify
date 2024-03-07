@@ -9,7 +9,7 @@
 
 ## Website Link
 
-[Insightify] (https://insightify-4c445209a40d.herokuapp.com/insightify)
+[Insightify] (Please see the deployment page)
 
 ## Features
 

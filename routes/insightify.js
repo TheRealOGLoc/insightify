@@ -5,7 +5,6 @@ var upload = require('../utilities/multer');
 
 /* /insightify has been added, no needs to add */
 
-
 // GET /
 router.get('/', postsController.explore);
 

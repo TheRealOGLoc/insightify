@@ -16,8 +16,11 @@ module.exports = {
     search
 }
 
+
+// Search a word in the database
 async function search(req, res, next) {
     const target = req.body.search;
+    // search the word in the tags and content
     const posts = await Post.find({
         $or: [
             { tags: { $regex: target, $options: "i" } }, 
@@ -30,6 +33,7 @@ async function search(req, res, next) {
             path: "creater"
         }
     });
+    // put tags on the database into an array
     const tags = [];
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
@@ -46,18 +50,21 @@ async function search(req, res, next) {
     })
 }
 
+// Find the post, and update the new content
 async function updatePost(req, res, next) {
     const id = req.params.id;
     await Post.updateOne({_id: id}, req.body);
     res.redirect(`/insightify/${req.params.id}`);
 }
 
+// Find the post, and delete it 
 async function deletePost(req, res, next) {
     const id = req.params.id;
     await Post.findByIdAndDelete({_id: id})
     res.redirect(`/insightify/`);
 }
 
+// Refresh the page
 async function refresh(req, res, next) {
     const posts = await Post.find({}).populate("creater")
     .populate({
@@ -66,8 +73,10 @@ async function refresh(req, res, next) {
             path: "creater"
         }
     });
+    // Sort the posts with random seed
     posts.sort(() => Math.random() - 0.5);
     const tags = [];
+    // put tags on the database into an array
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
         for (let j = 0; j < post.tags.length; j++) {
@@ -84,6 +93,7 @@ async function refresh(req, res, next) {
 
 }
 
+// Show posts which has a same id to the current user
 async function showMyPosts(req, res, next) {
     const user = req.user;
     const posts = await Post.where({ creater: user._id }).populate("creater")
@@ -99,6 +109,7 @@ async function showMyPosts(req, res, next) {
         })
 }
 
+// Show posts which has current user liked
 async function showLikes(req, res, next) {
     const user = req.user;
     const posts = await Post.where({ likes: { $in: user._id } })
@@ -115,9 +126,12 @@ async function showLikes(req, res, next) {
     })
 }
 
+// Like the current post
 async function like(req, res, next) {
     const post = await Post.findById(req.params.id);
     const user = req.user;
+    // If the current use already liked this post
+    // click like btn one more time will remove user id from the likes array
     if (post.likes.includes(user._id)) {
         const index = post.likes.indexOf(user._id);
         post.likes.splice(index, 1);
@@ -128,6 +142,7 @@ async function like(req, res, next) {
     res.redirect(`/insightify/${req.params.id}`);
 }
 
+// Create comment, push it to current post
 async function comment(req, res, next) {
     const post = await Post.findById(req.params.id);
     const user = req.user;
@@ -145,6 +160,8 @@ async function comment(req, res, next) {
     res.redirect(`/insightify/${req.params.id}`);
 }
 
+
+// Show current post
 async function show(req, res, next) {
     const post = await Post.findById(req.params.id)
         .populate("creater")
@@ -165,11 +182,11 @@ async function show(req, res, next) {
 
 }
 
-
-
+// Show all posts in the database
 async function explore(req, res, next) {
     const posts = await Post.find({}).populate('creater');
     const tags = [];
+    // put tags on the database into an array
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
         for (let j = 0; j < post.tags.length; j++) {
@@ -185,9 +202,10 @@ async function explore(req, res, next) {
     })
 }
 
-// Create Post
+// Create Post, upload the image to cloudinary
 async function create(req, res, next) {
     const user = req.user;
+    // split tags
     req.body.tags = req.body.tags.split(" ");
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
