@@ -1,7 +1,7 @@
 <h1 align="center">Insightify</h1>
 
 <p align="center">
-<img src="/assets/images/previews/preview.png"/>
+<img src="/public/images/previews/preview.png"/>
 </p>
 
 <p align="center">A social media sharing platform</p>
