@@ -7,9 +7,6 @@
 <p align="center">A social media sharing platform</p>
 <p>Insightify is an exhilarating photo-sharing platform designed to provide users with a creative, inspiring, and interactive space. Whether it's your latest travel photography or meticulously crafted food snapshots, Insightify welcomes you to share your perspective and stories.</p>
 
-## Website Link
-
-[Insightify] (https://insightify-4c445209a40d.herokuapp.com/insightify)
 
 ## Features
 
